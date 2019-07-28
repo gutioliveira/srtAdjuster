@@ -139,6 +139,10 @@ int main(int argc, char *argv[]){
 
 	// printf("tempo legenda %s %s\n", delay[0].c_str(), delay[1].c_str());
 
+	bool is_negative = delay[0][0] == '-';
+
+	// printf("delay[0] %s\n", delay[0].c_str());
+
 	long long delay_seconds = atoi(delay[0].c_str());
 	long long delay_precision;
 
@@ -201,7 +205,7 @@ int main(int argc, char *argv[]){
 			// seconds_precision1 = seconds_precision1/1000.0;
 			// seconds_precision2 = seconds_precision2/1000.0;
 
-			if ( delay_seconds >= 0 ){
+			if ( !is_negative ){
 
 				operation_positive(delay_seconds, delay_precision*delay_size, &hour1, &minute1, &seconds1, &seconds_precision1);
 				operation_positive(delay_seconds, delay_precision*delay_size, &hour2, &minute2, &seconds2, &seconds_precision2);
